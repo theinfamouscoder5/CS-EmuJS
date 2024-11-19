@@ -205,7 +205,7 @@ class EmulatorJS {
             console.warn("Using EmulatorJS beta. Not checking for updates. This instance may be out of date. Using stable is highly recommended unless you build and ship your own cores.");
             return;
         }
-        fetch('https://cdn.emulatorjs.org/stable/data/version.json').then(response => {
+        fetch('../version.json').then(response => {
             if (response.ok) {
                 response.text().then(body => {
                     let version = JSON.parse(body);
@@ -577,7 +577,7 @@ class EmulatorJS {
                 this.downloadFile(corePath, (res) => {
                     if (res === -1) {
                         console.log("File not found, attemping to fetch from emulatorjs cdn");
-                        this.downloadFile("https://cdn.emulatorjs.org/stable/data/"+corePath, (res) => {
+                        this.downloadFile("https://cs-emujs.pages.dev/data/"+corePath, (res) => {
                             if (res === -1) {
                                 if (!this.supportsWebgl2) {
                                     this.startGameError(this.localization('Outdated graphics driver'));
@@ -586,7 +586,7 @@ class EmulatorJS {
                                 }
                                 return;
                             }
-                            console.warn("File was not found locally, but was found on the emulatorjs cdn.\nIt is recommended to download the stable release from here: https://cdn.emulatorjs.org/releases/");
+                            //console.warn("File was not found locally, but was found on the emulatorjs cdn.\nIt is recommended to download the stable release from here: https://cdn.emulatorjs.org/releases/");
                             gotCore(res.data);
                             this.storage.core.put(filename, {
                                 version: rep.buildStart,
@@ -1367,7 +1367,7 @@ class EmulatorJS {
 
             const info = this.createElement("div");
 
-            this.createLink(info, "https://emulatorjs.org", "EmulatorJS");
+            this.createLink(info, "https://cs-emujs.pages.dev/", "EmulatorJS");
             // I do not like using innerHTML, though this should be "safe"
             info.innerHTML += " is powered by ";
             this.createLink(info, "https://github.com/libretro/RetroArch/", "RetroArch");
