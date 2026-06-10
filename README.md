@@ -1,3 +1,5 @@
+# Cody's Shack adapted version of EmulatorJS
+Practically everything in this repo was made by EmulatorJS. Stuff was just adapted to work better with the Cody's Shack website- but that project was abandoned long ago. Do whatever you want with this, I don't care. Just don't steal my assets like logos and such and I'll be happy.
 
 <div align = center>
 
